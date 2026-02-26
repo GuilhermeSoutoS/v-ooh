@@ -1,4 +1,5 @@
 # 💻 V-OOH
+<img width="1436" height="687" alt="GIT_HEAD" src="https://github.com/user-attachments/assets/7a302c8f-b995-4d28-bc57-6d802bd75140" />
 
 Bem-vindo ao repositório do projeto **V-OOH**, desenvolvido para entrega do Projeto de encerramento do segundo semestre da **São Paulo Tech School**.
 Este projeto tem como objetivo criar um sistema de monitoramento de hardware para empresas de publicidades e propagandas em Display Digital Out Of Home (DOOH)
@@ -9,11 +10,14 @@ Este projeto tem como objetivo criar um sistema de monitoramento de hardware par
 
 - **HTML5**
 - **CSS3**
+- **Bootstrap5**
 - **JavaScript**
 - **Chart.js**
 - **MySQL**
 - **Java**
+- **Slack**
 - **Python**
+- **PSutil**
 
 ---
 
