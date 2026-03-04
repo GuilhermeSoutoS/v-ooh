@@ -44,19 +44,12 @@ def captura_dados():
 def inserir_arquivo_csv(dados):
 
     print(dados)
-    
-    # MONTANDO CABEÇALHO DA TABELA
-    # cabecalho = [
-    #     "cpu_percentual",
-    #     "disco_percentual",
-    #     "memoria_percentual",
-    #     "data"
-    # ]
+
     # PEGANDO A DATA PARA COLOCAR NO ARQUIVO
     nome_arquivo = f"coleta_{date.today()}.csv"
 
     with open(nome_arquivo, mode='a', newline='') as arquivo_csv:
-        writer = csv.DictWriter(arquivo_csv, fieldnames=dados.keys())
+        writer = csv.DictWriter(arquivo_csv, fieldnames=dados.keys(), delimiter=';')
 
         # VALIDAÇÃO COM TELL() QUE É UMA FUNÇÃO QUE VERIFICA SE ESTÁ VAZIO OU NÃO
         if arquivo_csv.tell() == 0:
