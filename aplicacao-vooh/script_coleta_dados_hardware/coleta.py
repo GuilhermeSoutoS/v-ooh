@@ -26,7 +26,7 @@ def captura_dados():
 
         # TRANSFORMANDO EM DICIONÁRIO COM OS  DADOS
         conteudo_csv = {
-            "usesuario": os.getlogin(),
+            "usuario": os.getlogin(),
             "porcentagem_uso_da_cpu": porcentagem_uso_da_cpu,
             "porcentagem_uso_do_disco": porcentagem_uso_do_disco,
             "memoria_percentual": memoria_percentual,
