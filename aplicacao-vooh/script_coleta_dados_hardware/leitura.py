@@ -1,12 +1,16 @@
 import csv;
 import datetime;
+import time;
 from datetime import date;
 
 def ler_dados():
-    with open(f"coleta_{datetime.date.today()}.csv", mode="r") as arquivo_csv:
-        ler = csv.reader(arquivo_csv)
-        separar_dados(ler)
+    while True:
+        with open(f"coleta_{datetime.date.today()}.csv", mode="r") as arquivo_csv:
+            ler = csv.reader(arquivo_csv)
+            separar_dados(ler)
+        time.sleep(30)
 
+        
 def separar_dados(dados):
     contador = 0
 
@@ -17,11 +21,13 @@ def separar_dados(dados):
 
     for linha in dados:
         contador+=1
+
         if (contador > 1):
             valores_cpu_porcentagem.append(linha[0])
             valores_disco_porcentagem.append(linha[1])
             valores_memoria_porcentagem.append(linha[2])
             valores_data_porcentagem.append(linha[3])   
+
     calcular_metricas(
         valores_cpu_porcentagem,
         valores_disco_porcentagem,
