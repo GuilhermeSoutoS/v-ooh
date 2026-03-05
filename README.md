@@ -73,7 +73,7 @@ npm start
 - **📘 SPTech School**
 - **🔗 GitHub:** https://github.com/LeticiaPinheirooo/
 
-### Marcos Hiroshi
+### Marci Hiromi
 - **📘 SPTech School**
 - **🔗 GitHub:** https://github.com/Mahiryo
 
