@@ -9,10 +9,9 @@ async function verificarToken(req, res){
     var token = req.params.token    
     var consultaToken = await empresaModel.verificarToken(token)
 
-    console.log("CONSULTA: " + consultaToken);
+    console.log("Consulta: " + consultaToken);
     if (consultaToken) {
-        res.status(200).json(consultaToken)
-        
+        return res.status(200).json(consultaToken)
     }
 }
 async function cadastrar(req, res) {
@@ -21,7 +20,8 @@ async function cadastrar(req, res) {
     var razaoSocial = req.body.razaoSocialServer
     var telefoneContato = req.body.telefoneContatoServer
     var email = req.body.emailServer
-    var senha = req.body.senhaServer
+    var cep = req.body.cepServer
+    var numero = req.body.numeroServer
     var token = req.body.tokenServer
     
     if (!cnpj) {
@@ -34,21 +34,21 @@ async function cadastrar(req, res) {
     }
     else if (!email) {
         return res.status(400).json({ erro: "O campo email está undefined!" })
-    }
-    else if (!senha) {
-        return res.status(400).json({ erro: "O campo senha está undefined!" })
-    }
-    else if (!token) {
+    }   else if (!token) {
         return res.status(400).json({ erro: "O campo token está undefined!" })
-    }
-    else {
+    } else if (!cep) {
+        return res.status(400).json({ erro: "O campo cep está undefined!" })
+    } else if (!numero) {
+        return res.status(400).json({ erro: "O campo numero está undefined!" })
+    } else {
         const cadastroEmpresa = await empresaModel.cadastrar(
             cnpj,
             razaoSocial,
             telefoneContato,
             email,
-            senha,
-            token
+            token,
+            cep,
+            numero
         )
         console.log("Resultado: ", cadastroEmpresa);
         if (cadastroEmpresa) {

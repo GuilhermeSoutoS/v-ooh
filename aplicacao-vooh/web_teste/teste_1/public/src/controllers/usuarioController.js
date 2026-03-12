@@ -19,6 +19,8 @@ function autenticar(req, res) {
           return res.status(200).json({mensagem: "Login realizado com sucesso!"})
         } else{
           return res.status(400).json({erro: "Erro ao fazer login!"})
+          throw new Error("Erro ao realizar o login");
+          
         }
       })
       .catch(function (erro) {
@@ -37,6 +39,7 @@ function cadastrar(req, res) {
   var nome = req.body.nomeServer
   var fkEmpresa = req.body.fkEmpresaServer
   var email = req.body.emailServer
+  var cpf = req.body.cpfServer
   var senha = req.body.senhaServer
 
   // Faça as validações dos valores
@@ -47,9 +50,13 @@ function cadastrar(req, res) {
   } else if (senha == undefined) {
     res.status(400).send("Sua senha está undefined!");
   } else if (fkEmpresa == undefined) {
-    res.status(400).send("Seu fkEmpresa a vincular está undefined!");
+    res.status(400).send("Sua fkEmpresa está undefined!");
+  } else if (cpf == undefined) {
+    res.status(400).send("Seu cpf está undefined!");
   } else {
-    var cadastroUsuario = usuarioModel.cadastrar(fkEmpresa, nome, email, senha)
+    var cadastroUsuario = usuarioModel.cadastrar(fkEmpresa, nome, email, cpf, senha)
+    console.log("TIPO DO CADASTRO USUARIO: " + typeof(cadastroUsuario));
+    
     if (cadastroUsuario < 1) {
       return res.status(400).json({ erro: "Erro ao cadastrar o usuário!" })
     } else {

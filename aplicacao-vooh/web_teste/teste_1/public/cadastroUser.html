@@ -15,42 +15,40 @@
     <div class="row vh-100">
       <div class="col-md-5 left-side">
         <div class="register-box">
-          <h3 class="fw-bold text-center">Create account</h3>
-          <p class="text-secondary text-center">Please fill in your information</p>
-          <label for="ipt_username" class="labels-ipt">Username</label>
-          <div class="mb-3">
-            <input type="text" value="a" id="ipt_username" class="input-class" placeholder="Enter username" />
-          </div>
-          <label for="ipt_email" class="labels-ipt">E-mail</label>
-          <div class="mb-3">
-            <input type="text" value="@.com" id="ipt_email" class="input-class" placeholder="Enter e-mail" />
-          </div>
-          <label for="ipt_senha" class="labels-ipt">Senha</label>
-          <div class="mb-3">
-            <input value="Pedro.1005" id="ipt_senha" type="password" class="input-class" placeholder="Enter password" />
-          </div>
-          <label for="ipt_confirmacao" class="labels-ipt">Confirmação de senha</label>
-          <div class="mb-3">
-            <input value="Pedro.1005" id="ipt_confirmacao" type="password" class="input-class"
-              placeholder="Confirm password" />
-          </div>
-          <label for="ipt_token" class="labels-ipt">Token</label>
-          <div class="mb-3">
-            <input value="cea925c650fa977cb972726e118a6fa849eea00674a3ccb9e273fc5afe776cdf" id="ipt_token" type="text"
-              class="input-class" placeholder="Enter token enterprise" />
-          </div>
+          <h3 class="fw-bold text-center">Crie sua conta</h3>
+          <p class="text-secondary m-0 text-center">Informe seus dados</p>
+          <div class="cont_inputs">
+            <label for="ipt_username" class="labels-ipt">Nome</label>
+            <input type="text" id="ipt_username" class="input-class" placeholder="Insira o nome: " />
 
-          <button onclick="cadastrar()" class="btn btn-light w-100 btn-register">
+            <label for="ipt_cpf" class="labels-ipt">CPF</label>
+            <input type="text" maxlength="11" id="ipt_cpf" class="input-class" placeholder="Insira o cpf: " />
+
+            <label for="ipt_email" class="labels-ipt">E-mail</label>
+            <input type="text"  id="ipt_email" class="input-class" placeholder="Insira o e-mail: " />
+
+            <label for="ipt_senha" class="labels-ipt">Senha</label>
+            <input id="ipt_senha" type="password" class="input-class"
+              placeholder="Insira uma senha: " />
+              
+            <label for="ipt_confirmacao" class="labels-ipt">Confirmação de senha</label>
+            <input id="ipt_confirmacao" type="password" class="input-class"
+              placeholder="Confirmar senha: " />
+
+            <label for="ipt_token" class="labels-ipt">Token</label>
+            <input id="ipt_token" type="text"
+              class="input-class" placeholder="Insira o token: " />
+          </div>
+          <button onclick="cadastrar()" class="btn-light w-100 btn-register">
             Register
           </button>
-
-          <p class="text-center text-secondary mt-4 login-text">
-            Already have an account?
-            <a href="login.html">Sign in</a>
+          <p class="text-center text-secondary login-text">
+            Já tem uma conta?
+            <a href="login.html">Login</a>
           </p>
-          <p class="text-center text-secondary mt-4 login-text">
-            No companies registered?
-            <a href="cadastroEmpresa.html">Sign up enterprise</a>
+          <p class="text-center text-secondary login-text">
+            Nenhuma empresa cadastrada?
+            <a href="cadastroEmpresa.html">Cadastre</a>
           </p>
         </div>
       </div>
@@ -112,6 +110,8 @@
       async function cadastrar() {
         var nomeVar = ipt_username.value;
         var emailVar = ipt_email.value;
+        var cpfVar = ipt_cpf.value;
+
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_confirmacao.value;
         var tokenVar = ipt_token.value
@@ -126,7 +126,8 @@
           nomeVar == "" ||
           emailVar == "" ||
           senhaVar == "" ||
-          confirmacaoSenhaVar == ""
+          confirmacaoSenhaVar == "" || 
+          cpfVar == ""
         ) {
           alert("Todos campos devem estar preenchidos");
           return false;
@@ -157,6 +158,7 @@
                 fkEmpresaServer: fkEmpresaServer,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
+                cpfServer: cpfVar
               }),
             })
               .then(function (resposta) {
