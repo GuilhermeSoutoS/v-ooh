@@ -61,8 +61,8 @@
     <div class="row vh-100">
       <div class="col-md-5 left-side">
         <div class="register-box">
-          <h3 class="mb-2 fw-bold text-center">Create account</h3>
-          <p class="text-secondary mb-4 text-center">Please fill in your information</p>
+          <h3 class="fw-bold text-center">Create account</h3>
+          <p class="text-secondary text-center">Please fill in your information</p>
           <label for="ipt_username" class="labels-ipt">Username</label>
           <div class="mb-3">
             <input type="text" value="a" id="ipt_username" class="input-class" placeholder="Enter username" />
@@ -77,14 +77,14 @@
           </div>
           <label for="ipt_confirmacao" class="labels-ipt">Confirmação de senha</label>
           <div class="mb-3">
-            <input value="Pedro.1005" id="ipt_confirmacao" type="password" class="input-class" placeholder="Confirm password" />
+            <input value="Pedro.1005" id="ipt_confirmacao" type="password" class="input-class"
+              placeholder="Confirm password" />
           </div>
           <label for="ipt_token" class="labels-ipt">Token</label>
           <div class="mb-3">
-            <input value="cea925c650fa977cb972726e118a6fa849eea00674a3ccb9e273fc5afe776cdf" id="ipt_token" type="text" class="input-class" placeholder="Enter token enterprise" />
+            <input value="cea925c650fa977cb972726e118a6fa849eea00674a3ccb9e273fc5afe776cdf" id="ipt_token" type="text"
+              class="input-class" placeholder="Enter token enterprise" />
           </div>
-
-          <div class="divider"></div>
 
           <button onclick="cadastrar()" class="btn btn-light w-100 btn-register">
             Register
@@ -100,132 +100,131 @@
           </p>
         </div>
       </div>
-      <div class="col-md-7  right-side d-none d-md-flex">
+      <div class="col-md-7 right-side d-none d-md-flex">
         <div class="cont-btn">
           <a href="index.html">
-            <button class="btn-back"><</button>
+            <button class="btn-back">&lt;</button>
           </a>
         </div>
-        <div class=" cont-passo-a-passo">
+        <div class="cont-passo-a-passo">
           <h3 class="text-start mb-3">Comece <br> conosco!</h3>
-          <div class="d-flex h-50 flex-row justify-content-xl-between cont-card">
-            <div
-              class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
-              <h5 class="number-text text-circle-secondary">1</h5>
-              <h5>Cadastre a empresa</h5>
-            </div>
+          <div class="cont-card">
             <div
               class="d-flex p-3 rounded-4 bg-white text-black justify-content-xl-evenly justify-content-center flex-column cards">
-              <h5 class=" bg-black text-white number-text">2</h5>
-              <h5>Crie uma conta com o token</h5>
+              <h5 class="number-text bg-black text-white">1</h5>
+              <h5 class="text_card">Cadastre a empresa</h5>
+            </div>
+            <div
+              class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
+              <h5 class="  text-circle-secondary number-text">2</h5>
+              <h5 class="text_card">Crie uma conta com o token</h5>
             </div>
             <div
               class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
               <h5 class=" number-text text-circle-secondary">3</h5>
-              <h5>Configure as máquinas</h5>
+              <h5 class="text_card">Configure as máquinas</h5>
             </div>
             <div
               class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
               <h5 class=" number-text text-circle-secondary">4</h5>
-              <h5>Analise dados pela dashboard</h5>
+              <h5 class="text_card">Analise dados pela dashboard</h5>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
 
-    async function consultaToken(token) {
-      var consulta = await fetch(`/empresa/verificar-token/${token}`)
-        .then(resposta => resposta.json())
-        .then(function (resposta) {
-          if (!resposta) {
+      async function consultaToken(token) {
+        var consulta = await fetch(`/empresa/verificar-token/${token}`)
+          .then(resposta => resposta.json())
+          .then(function (resposta) {
+            if (!resposta) {
+              console.log("Erro ao gerar token!");
+              throw resposta
+            }
+            console.log(resposta);
+
+            return resposta[0]
+          })
+          .catch(function (error) {
             console.log("Erro ao gerar token!");
-            throw resposta
-          }
-          console.log(resposta);
-          
-          return resposta[0]
-        })
-        .catch(function (error) {
-          console.log("Erro ao gerar token!");
-          return 0
-        })
+            return 0
+          })
 
         return consulta
-    }
-    async function cadastrar() {
-      var nomeVar = ipt_username.value;
-      var emailVar = ipt_email.value;
-      var senhaVar = ipt_senha.value;
-      var confirmacaoSenhaVar = ipt_confirmacao.value;
-      var tokenVar = ipt_token.value
-
-      var senhaMaiuscula = senhaVar.toUpperCase();
-      var incluiMaiuscula = senhaVar != senhaMaiuscula;
-
-      var senhaMinuscula = senhaVar.toLowerCase();
-      var incluiMinuscula = senhaVar != senhaMinuscula;
-
-      if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == ""
-      ) {
-        alert("Todos campos devem estar preenchidos");
-        return false;
-      } else if (
-        senhaVar.length < 8 ||
-        confirmacaoSenhaVar != senhaVar ||
-        incluiMaiuscula == false ||
-        incluiMinuscula == false
-      ) {
-        alert(
-          "Coloque uma senha forte. A senha deve ter 8 ou mais caracteres, 1 letra maiúscula e 1 minúscula.",
-        );
-        return false;
-      } else if (!emailVar.includes("@") || !emailVar.endsWith(".com")) {
-        alert("O email deve incluir '@' e finalizar com '.com'");
-        return false;
-      } else {
-        var consultarToken = await consultaToken(tokenVar)
-        if (consultarToken) {
-          var fkEmpresaServer = consultarToken.idEmpresa
-          fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              nomeServer: nomeVar,
-              fkEmpresaServer: fkEmpresaServer,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-            }),
-          })
-          .then(function (resposta) {
-            if (resposta.ok && resposta.status == 200) {
-              alert("Usuário cadastrado com sucesso!")
-                setTimeout(() => {
-                  window.location = "login.html";
-                }, 1000);
-              } else {
-                throw "Erro ao realizar cadastro!";
-              }
-            })
-            .catch(function (erro) {
-              console.log(`#ERRO: ${erro}`);
-            });
-
-          return false;
-        }
       }
+      async function cadastrar() {
+        var nomeVar = ipt_username.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+        var confirmacaoSenhaVar = ipt_confirmacao.value;
+        var tokenVar = ipt_token.value
 
-    }
-  </script>
+        var senhaMaiuscula = senhaVar.toUpperCase();
+        var incluiMaiuscula = senhaVar != senhaMaiuscula;
+
+        var senhaMinuscula = senhaVar.toLowerCase();
+        var incluiMinuscula = senhaVar != senhaMinuscula;
+
+        if (
+          nomeVar == "" ||
+          emailVar == "" ||
+          senhaVar == "" ||
+          confirmacaoSenhaVar == ""
+        ) {
+          alert("Todos campos devem estar preenchidos");
+          return false;
+        } else if (
+          senhaVar.length < 8 ||
+          confirmacaoSenhaVar != senhaVar ||
+          incluiMaiuscula == false ||
+          incluiMinuscula == false
+        ) {
+          alert(
+            "Coloque uma senha forte. A senha deve ter 8 ou mais caracteres, 1 letra maiúscula e 1 minúscula.",
+          );
+          return false;
+        } else if (!emailVar.includes("@") || !emailVar.endsWith(".com")) {
+          alert("O email deve incluir '@' e finalizar com '.com'");
+          return false;
+        } else {
+          var consultarToken = await consultaToken(tokenVar)
+          if (consultarToken) {
+            var fkEmpresaServer = consultarToken.idEmpresa
+            fetch("/usuarios/cadastrar", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                nomeServer: nomeVar,
+                fkEmpresaServer: fkEmpresaServer,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+              }),
+            })
+              .then(function (resposta) {
+                if (resposta.ok && resposta.status == 200) {
+                  alert("Usuário cadastrado com sucesso!")
+                  setTimeout(() => {
+                    window.location = "login.html";
+                  }, 1000);
+                } else {
+                  throw "Erro ao realizar cadastro!";
+                }
+              })
+              .catch(function (erro) {
+                console.log(`#ERRO: ${erro}`);
+              });
+
+            return false;
+          }
+        }
+
+      }
+    </script>
 </body>
 
 </html>

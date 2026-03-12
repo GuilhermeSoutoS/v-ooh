@@ -24,13 +24,19 @@
 .sq-p{ background:var(--purple); }
 
 
-.btn-primary{
+.btn-home{
   background:var(--purple);
   border-color:var(--purple);
+  filter:brightness(.95);
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  height: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
-.btn-primary:hover{ filter:brightness(.95); }
-.btn-pill{ border-radius:999px; }
-
 .btn-lime{
   background:var(--lime);
   border:0;
