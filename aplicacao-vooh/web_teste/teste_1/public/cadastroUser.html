@@ -18,38 +18,42 @@
           <h3 class="fw-bold text-center">Crie sua conta</h3>
           <p class="text-secondary m-0 text-center">Informe seus dados</p>
           <div class="cont_inputs">
-            <label for="ipt_username" class="labels-ipt">Nome</label>
-            <input type="text" id="ipt_username" class="input-class" placeholder="Insira o nome: " />
+            <label for="ipt_username" class="labels-ipt">Nome: </label>
+            <input type="text" id="ipt_username" class="input-class" placeholder="Insira seu nome " />
 
-            <label for="ipt_cpf" class="labels-ipt">CPF</label>
-            <input type="text" maxlength="11" id="ipt_cpf" class="input-class" placeholder="Insira o cpf: " />
+            <label for="ipt_cpf" class="labels-ipt">CPF: </label>
+            <input type="text" maxlength="11" id="ipt_cpf" class="input-class" placeholder="Ex 00000000000 " />
 
-            <label for="ipt_email" class="labels-ipt">E-mail</label>
-            <input type="text"  id="ipt_email" class="input-class" placeholder="Insira o e-mail: " />
+            <label for="ipt_email" class="labels-ipt">E-mail: </label>
+            <input type="text"  id="ipt_email" class="input-class" placeholder="Insira seu email " />
 
-            <label for="ipt_senha" class="labels-ipt">Senha</label>
+            <label for="ipt_senha" class="labels-ipt">Senha: </label>
             <input id="ipt_senha" type="password" class="input-class"
-              placeholder="Insira uma senha: " />
+              placeholder="Insira uma senha " />
               
-            <label for="ipt_confirmacao" class="labels-ipt">Confirmação de senha</label>
+            <label for="ipt_confirmacao" class="labels-ipt">Confirmação de senha: </label>
             <input id="ipt_confirmacao" type="password" class="input-class"
-              placeholder="Confirmar senha: " />
+              placeholder="Confirmar senha " />
 
-            <label for="ipt_token" class="labels-ipt">Token</label>
+            <label for="ipt_token" class="labels-ipt">Token: </label>
             <input id="ipt_token" type="text"
-              class="input-class" placeholder="Insira o token: " />
+              class="input-class" placeholder="Insira o token da empresa " />
           </div>
           <button onclick="cadastrar()" class="btn-light w-100 btn-register">
-            Register
+            Criar conta
           </button>
-          <p class="text-center text-secondary login-text">
-            Já tem uma conta?
-            <a href="login.html">Login</a>
-          </p>
-          <p class="text-center text-secondary login-text">
-            Nenhuma empresa cadastrada?
-            <a href="cadastroEmpresa.html">Cadastre</a>
-          </p>
+
+          <div class="redirect">
+            <p class="text-center text-secondary login-text">
+              Já possui conta?
+              <a href="login.html">Entrar</a>
+            </p>
+            <p class="text-center text-secondary login-text">
+              Empresa não cadastrada?
+              <a href="cadastroEmpresa.html">Cadastre</a>
+            </p>
+          </div>
+
         </div>
       </div>
       <div class="col-md-7 right-side d-none d-md-flex">
@@ -64,22 +68,22 @@
             <div
               class="d-flex p-3 rounded-4 bg-white text-black justify-content-xl-evenly justify-content-center flex-column cards">
               <h5 class="number-text bg-black text-white">1</h5>
-              <h5 class="text_card">Cadastre a empresa</h5>
+              <h5 class="text_card">Cadastrar empresa</h5>
             </div>
             <div
               class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
               <h5 class="  text-circle-secondary number-text">2</h5>
-              <h5 class="text_card">Crie uma conta com o token</h5>
+              <h5 class="text_card">Criar conta com o token</h5>
             </div>
             <div
               class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
               <h5 class=" number-text text-circle-secondary">3</h5>
-              <h5 class="text_card">Configure as máquinas</h5>
+              <h5 class="text_card">Configurar máquinas</h5>
             </div>
             <div
               class="d-flex p-3 rounded-4 justify-content-xl-evenly justify-content-center flex-column second-card cards">
               <h5 class=" number-text text-circle-secondary">4</h5>
-              <h5 class="text_card">Analise dados pela dashboard</h5>
+              <h5 class="text_card">Analisar dados na dashboard</h5>
             </div>
           </div>
         </div>
