@@ -90,7 +90,7 @@ body {
 
 .btn-login {
   border-radius: 30px;
-  padding: 12px;
+  padding: 12px; 
   font-weight: 600;
   font-size: 1rem;
 
@@ -98,7 +98,7 @@ body {
 
 .divider {
   border-top: 1px solid #444;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .signup-text a {
