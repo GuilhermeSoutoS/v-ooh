@@ -1,16 +1,16 @@
 var database = require("../database/config")
 
 
-function cadastrar(nome, descricao, medida) {
+
+function buscar(idMaquina) {
     var instrucaoSql = `
-            INSERT INTO componente(nome, descricao, medida) VALUES 
-            ('${nome}', '${descricao}', '${medida}')
+            SELECT * FROM maquina_componente WHERE fkMaquina = ${idMaquina};
         `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+    
 }
-
-function buscar() {
+function buscar_componentes() {
     var instrucaoSql = `
             SELECT * FROM componente;
         `;
@@ -20,6 +20,6 @@ function buscar() {
 }
 
 module.exports = {
-    cadastrar,
+    buscar_componentes,
     buscar
 };
