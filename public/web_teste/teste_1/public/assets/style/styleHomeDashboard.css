@@ -56,25 +56,70 @@ body {
     width: 50%;
     margin: 30px;
 }
+.pop-up .btn-home#btn_buscar {
+    width: 25%;
+    /* height: 100%; */
+    height: 5vh;
+    margin: 30px;
+    background-color: #bbbbbb;
+    color: black;
+}
+
+#pop_up{
+    overflow-y: scroll;
+}
 
 .btn-home {
     width: 75%;
     height: 5vh;
+    min-height: 5vh;
     background-color: #6b3cff;
     color: #fff;
     border: none;
     border-radius: 40px;
 }
+#container_componentes_maquina{
+    width: 100%;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 
+
+}
 .text-desc {
     width: 80%;
     margin: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 
 .cont-input {
     width: 80%;
     display: flex;
     flex-direction: column;
+}
+.cont-input label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.cont-input label input{
+    text-align: center;
+}
+
+
+.cont-input#div_buscar {
+    width: 80%;
+    /* height: 5vh; */
+    /* height: min-content; */
+    display: flex;
+    flex-direction:row;
+    align-content: space-around;
+    justify-items: center;
 }
 
 .cont-checkboxes {
@@ -215,9 +260,8 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: ease-in-out background-color 0.3s;
 }
-.line-cards :hover{
+.card-cadastrar:hover{
     background-color: #dddddd;
 }
 
@@ -232,7 +276,7 @@ input::placeholder {
     height: 100%;
     border-radius: 30px;
     text-align: center;
-    
+    transition: ease-in-out background-color 0.3s;
 }
 
 

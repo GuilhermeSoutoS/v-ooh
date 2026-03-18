@@ -55,17 +55,10 @@
     </nav>
 
     <main class="cont-cards">
-      <div class="line-cards">
-        <div onclick="ativarPopUp(`Maquina`)" class="card-cadastrar">
-          <h2>Cadastrar máquina</h2>
-          <img src="assets/img/icon-dooh.png" alt="" />
-        </div>
-        <!-- <div onclick="ativarPopUp(`Componente`)" class="card-cadastrar">
-                <h2>Cadastrar componente</h2>
-                <img src="assets/img/icon-componente.png" alt="">
-            </div> -->
+      <div onclick="ativarPopUp(`Maquina`)" class="card-cadastrar">
+        <h2>Cadastrar máquina</h2>
+        <img src="assets/img/icon-dooh.png" alt="" />
       </div>
-
       <div onclick="window.location = `dashboard.html`" class="card-dashboard">
         <h2>Dashboard</h2>
         <img src="assets/img/icon-metrica.png" alt="" />
@@ -95,12 +88,18 @@ async function ativarPopUp(tipo_pop_up) {
                 <button onclick="desativarPopUp()" id="btn_voltar">&lt;</button>
             </div>
 
-            <div class="cont-input">
-                <label for="input_nome_maquina">Nome da máquina</label>
+            <div class="cont-input" id="div_buscar">
+              
+              <label for="input_nome_maquina">
+                Nome da máquina
                 <input type="text" class="input" id="input_nome_maquina" placeholder="Insira o nome da máquina">
+                <button class="btn-home" id="btn_buscar" type="button">
+                  Buscar
+                </button>
+                </label>
             </div>
 
-            <p class="text-desc">Componentes da máquina</p>
+            <p class="text-desc">Componentes da máquina:</p>
 
             <div id="container_componentes_maquina">
                 <div class="cont-input">
